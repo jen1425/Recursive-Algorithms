@@ -21,7 +21,15 @@
 // countVowels('abcedfg') ->2
 
 var countVowels = function(str){
-
+    let vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    if (str.length === 0) {
+      return count;
+    } else {
+      if (vowels.has(str[0])) {
+          count++;
+      }
+      return countVowels(str.slice(1), count);        
+    }
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -35,7 +43,13 @@ var countVowels = function(str){
 // sumDigits(12) → 3
 
 var recursiveSum = function(n){
-
+  if (n === 0) {
+    return sum;
+  } else {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+    return recursiveSum(n, sum);
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -48,7 +62,15 @@ var recursiveSum = function(n){
 // PowerOfTwo(9) -> false
 
 var isPowerOfTwo = function(n){
-
+  if (n === 1) {
+    return true;
+  } else {
+    if (n % 2 !== 0) {
+      return false;
+    } else {
+      return isPowerOfTwo(n / 2);
+    }
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -65,6 +87,13 @@ var isPowerOfTwo = function(n){
 // then after one year the investment will be worth 1100, after two years 1210, after three years 1331, etc.)
 
 var invest = function(amount){
+    if (years === 0) {
+        return amount;
+    } else {
+        amount = amount + amount * rate;
+        years--
+        return invest(amount, rate, years);
+    }
 
 };
 
