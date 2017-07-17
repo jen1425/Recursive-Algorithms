@@ -111,7 +111,11 @@ var invest = function(amount){
 //    printRangeUpDown(4, 10);
 //    console.logs: 4,5,6,7,8,9,10,9,8,7,6,5,4
 var printRangeUpDown = function(min, max){
-
+  console.log(min);
+  if (min < max) {
+    printRangeUpDown(min + 1, max);
+    console.log(min);
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////
